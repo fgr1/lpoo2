@@ -1,0 +1,15 @@
+create table clientes
+(
+	id serial,
+	nome varchar(250),
+	sobrenome varchar(250),
+	rg varchar (8),
+	cpf varchar (11),
+	endereco varchar (250),
+	constraint pkcliente primary key (id)
+);
+
+insert into clientes (nome, sobrenome, rg, cpf, endereco)
+values ('Fulano', 'de Tal', '99999991','11111111111','Rua Nossa Senhora do Senhor, 9911'),
+('Beltrano', 'Qualquer', '11111119','22222222222','Av. das Duas Torres, 1199'),
+('Sicrano', 'Silva', '23051995','33333333333','Rua Nome de Algum Político, 1919');
