@@ -4,6 +4,7 @@
  */
 package locadora.controller;
 
+import javax.swing.JFrame;
 import locadora.dao.ClienteDao;
 import locadora.dao.ConnectionFactory;
 import locadora.dao.VeiculoDao;
@@ -34,12 +35,14 @@ public class IndexController {
         JanelaClientes view = new JanelaClientes();
         ClienteDao clienteDao = new ClienteDao(new ConnectionFactory());
         ClienteController controller = new ClienteController(view,clienteDao);
+        janela.dispose();
     }
 
     public void veiculoView() {
 //        JanelaVeiculos view = new JanelaVeiculos();
 //        VeiculoDao veiculoDao = new VeiculoDao(new ConnectionFactory());
 //        VeiculoController controller = new VeiculoController(view,veiculoDao);
+//        janela.dispose();
     }
 
     public void devolucaoView() {
@@ -51,7 +54,7 @@ public class IndexController {
     }
 
     public void quitProgram() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        System.exit(0);
     }
 
     public void venderView() {

@@ -32,6 +32,7 @@ public class BotoesClientes extends javax.swing.JPanel {
         btnAtualizarCliente = new javax.swing.JButton();
         btnExcluirCliente = new javax.swing.JButton();
         btnListarCliente = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
 
         btnIncluirCliente.setText("Incluir");
 
@@ -40,6 +41,13 @@ public class BotoesClientes extends javax.swing.JPanel {
         btnExcluirCliente.setText("Excluir");
 
         btnListarCliente.setText("Listar");
+
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -54,7 +62,9 @@ public class BotoesClientes extends javax.swing.JPanel {
                 .addComponent(btnExcluirCliente)
                 .addGap(18, 18, 18)
                 .addComponent(btnListarCliente)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnVoltar)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -64,10 +74,15 @@ public class BotoesClientes extends javax.swing.JPanel {
                     .addComponent(btnIncluirCliente)
                     .addComponent(btnAtualizarCliente)
                     .addComponent(btnExcluirCliente)
-                    .addComponent(btnListarCliente))
+                    .addComponent(btnListarCliente)
+                    .addComponent(btnVoltar))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -75,6 +90,7 @@ public class BotoesClientes extends javax.swing.JPanel {
     private javax.swing.JButton btnExcluirCliente;
     private javax.swing.JButton btnIncluirCliente;
     private javax.swing.JButton btnListarCliente;
+    private javax.swing.JButton btnVoltar;
     // End of variables declaration//GEN-END:variables
 
     public void setController(ClienteController controller) {
@@ -83,6 +99,8 @@ public class BotoesClientes extends javax.swing.JPanel {
         this.btnAtualizarCliente.addActionListener(e -> controller.atualizarCliente());
         this.btnExcluirCliente.addActionListener(e -> controller.excluirCliente());
         this.btnListarCliente.addActionListener(e -> controller.listarCliente());
+        this.btnIncluirCliente.addActionListener(e -> controller.incluirCliente());
+        this.btnVoltar.addActionListener(e -> controller.voltarIndex());
 
     }
 }

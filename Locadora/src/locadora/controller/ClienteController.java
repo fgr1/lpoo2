@@ -8,6 +8,7 @@ import java.util.List;
 import locadora.model.Cliente;
 import locadora.dao.ClienteDao;
 import locadora.view.JanelaClientes;
+import locadora.view.JanelaIndex;
 
 /**
  *
@@ -75,5 +76,12 @@ public class ClienteController {
             ex.printStackTrace();
             view.apresentaErro("Erro ao listar contatos.");
         }
+    }
+    
+     public void voltarIndex() {
+        JanelaIndex janela = new JanelaIndex();
+        IndexController controller = new IndexController(janela);
+        view.dispose();
+        
     }
 }
