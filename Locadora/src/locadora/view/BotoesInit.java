@@ -4,6 +4,8 @@
  */
 package locadora.view;
 
+import locadora.controller.IndexController;
+
 /**
  *
  * @author Felipe
@@ -110,4 +112,14 @@ public class BotoesInit extends javax.swing.JPanel {
     private javax.swing.JButton btnVender;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    public void setController(IndexController controller) {
+      
+        this.btnAddCliente.addActionListener(e -> controller.clienteView());
+        this.btnAddVeiculo.addActionListener(e -> controller.veiculoView());
+        this.btnDevolucao.addActionListener(e -> controller.devolucaoView());
+        this.btnLocar.addActionListener(e -> controller.locarView());
+        this.btnSair.addActionListener(e -> controller.quitProgram());
+        this.btnVender.addActionListener(e -> controller.venderView());
+    }    
 }

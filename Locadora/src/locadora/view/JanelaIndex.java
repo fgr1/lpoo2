@@ -4,16 +4,18 @@
  */
 package locadora.view;
 
+import locadora.controller.IndexController;
+
 /**
  *
  * @author Felipe
  */
-public class JanelaInit extends javax.swing.JFrame {
+public class JanelaIndex extends javax.swing.JFrame {
 
     /**
      * Creates new form JanelaInit
      */
-    public JanelaInit() {
+    public JanelaIndex() {
         initComponents();
     }
 
@@ -56,4 +58,13 @@ public class JanelaInit extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private locadora.view.BotoesInit botoesInit1;
     // End of variables declaration//GEN-END:variables
+
+    public void setController(IndexController controller) {
+       botoesInit1.setController(controller); 
+    }
+    
+    public void initView() {
+        java.awt.EventQueue.invokeLater(() ->  this.setVisible(true));
+    }  
+
 }

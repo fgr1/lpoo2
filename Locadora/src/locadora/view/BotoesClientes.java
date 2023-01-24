@@ -4,7 +4,7 @@
  */
 package locadora.view;
 
-import locadora.controller.LocadoraController;
+import locadora.controller.ClienteController;
 
 /**
  *
@@ -77,7 +77,7 @@ public class BotoesClientes extends javax.swing.JPanel {
     private javax.swing.JButton btnListarCliente;
     // End of variables declaration//GEN-END:variables
 
-    public void setController(LocadoraController controller) {
+    public void setController(ClienteController controller) {
       
         this.btnIncluirCliente.addActionListener(e -> controller.incluirCliente());
         this.btnAtualizarCliente.addActionListener(e -> controller.atualizarCliente());

@@ -6,7 +6,7 @@ package locadora.view;
 
 import java.util.List;
 import javax.swing.JOptionPane;
-import locadora.controller.LocadoraController;
+import locadora.controller.ClienteController;
 import locadora.model.Cliente;
 /**
  *
@@ -78,7 +78,7 @@ public class JanelaClientes extends javax.swing.JFrame {
     private locadora.view.TabelaClientes tabelaClientes1;
     // End of variables declaration//GEN-END:variables
 
-    public void setController(LocadoraController controller) {
+    public void setController(ClienteController controller) {
        botoesClientes1.setController(controller); 
     }
     

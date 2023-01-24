@@ -13,12 +13,12 @@ import locadora.view.JanelaClientes;
  *
  * @author Felipe
  */
-public class LocadoraController {
+public class ClienteController {
     
     private JanelaClientes view;
     private ClienteDao clienteDao;
 
-    public LocadoraController(JanelaClientes view, ClienteDao clienteDao) {
+    public ClienteController(JanelaClientes view, ClienteDao clienteDao) {
         this.view = view;
         this.clienteDao = clienteDao;
         initController();
