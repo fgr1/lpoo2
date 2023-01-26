@@ -13,7 +13,7 @@ import locadora.controller.IndexController;
 public class JanelaIndex extends javax.swing.JFrame {
 
     /**
-     * Creates new form JanelaInit
+     * Creates new form JanelaIndex
      */
     public JanelaIndex() {
         initComponents();
@@ -36,15 +36,13 @@ public class JanelaIndex extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(botoesInit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(botoesInit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(botoesInit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(botoesInit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -54,10 +52,10 @@ public class JanelaIndex extends javax.swing.JFrame {
      * @param args the command line arguments
      */
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private locadora.view.BotoesInit botoesInit1;
     // End of variables declaration//GEN-END:variables
+
 
     public void setController(IndexController controller) {
        botoesInit1.setController(controller); 
@@ -65,6 +63,6 @@ public class JanelaIndex extends javax.swing.JFrame {
     
     public void initView() {
         java.awt.EventQueue.invokeLater(() ->  this.setVisible(true));
-    }  
+    }
 
 }

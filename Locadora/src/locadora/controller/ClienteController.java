@@ -7,7 +7,7 @@ package locadora.controller;
 import java.util.List;
 import locadora.model.Cliente;
 import locadora.dao.ClienteDao;
-import locadora.view.JanelaClientes;
+import locadora.view.tela.clientes.JanelaClientes;
 import locadora.view.JanelaIndex;
 
 /**

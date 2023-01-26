@@ -90,5 +90,9 @@ public abstract class Veiculo implements VeiculoI {
     public void locar(int dias, Calendar data, Cliente cliente){
         // Seu códiguzinho bem aqui! XD
     }
-       
+
+    public double getValorDeCompra() {
+        return valorDeCompra;
+    }
+    
 }

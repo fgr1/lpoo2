@@ -8,8 +8,9 @@ import javax.swing.JFrame;
 import locadora.dao.ClienteDao;
 import locadora.dao.ConnectionFactory;
 import locadora.dao.VeiculoDao;
-import locadora.view.JanelaClientes;
+import locadora.view.tela.clientes.JanelaClientes;
 import locadora.view.JanelaIndex;
+import locadora.view.tela.veiculos.JanelaVeiculos;
 
 /**
  *
@@ -39,10 +40,10 @@ public class IndexController {
     }
 
     public void veiculoView() {
-//        JanelaVeiculos view = new JanelaVeiculos();
-//        VeiculoDao veiculoDao = new VeiculoDao(new ConnectionFactory());
-//        VeiculoController controller = new VeiculoController(view,veiculoDao);
-//        janela.dispose();
+        JanelaVeiculos view = new JanelaVeiculos();
+        VeiculoDao veiculoDao = new VeiculoDao(new ConnectionFactory());
+        VeiculoController controller = new VeiculoController(view,veiculoDao);
+        janela.dispose();
     }
 
     public void devolucaoView() {

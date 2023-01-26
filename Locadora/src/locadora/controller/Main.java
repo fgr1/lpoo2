@@ -6,7 +6,7 @@ package locadora.controller;
 
 import locadora.dao.ClienteDao;
 import locadora.dao.ConnectionFactory;
-import locadora.view.JanelaClientes;
+import locadora.view.tela.clientes.JanelaClientes;
 import locadora.view.JanelaIndex;
 
 /**
