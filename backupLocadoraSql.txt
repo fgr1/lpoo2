@@ -13,3 +13,17 @@ insert into clientes (nome, sobrenome, rg, cpf, endereco)
 values ('Fulano', 'de Tal', '99999991','11111111111','Rua Nossa Senhora do Senhor, 9911'),
 ('Beltrano', 'Qualquer', '11111119','22222222222','Av. das Duas Torres, 1199'),
 ('Sicrano', 'Silva', '23051995','33333333333','Rua Nome de Algum Político, 1919');
+
+create table veiculos
+(
+	id serial,
+    	marca varchar(250),
+    	estado varchar(250),
+    	locacao varchar(250),
+    	categoria varchar(250),
+    	valorDeCompra numeric,
+    	placa varchar(8),
+    	ano integer,
+	modelo varchar(250),
+	constraint pkveiculo primary key (id)
+);
