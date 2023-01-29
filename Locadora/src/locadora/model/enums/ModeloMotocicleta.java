@@ -8,7 +8,7 @@ package locadora.model.enums;
  *
  * @author Felipe
  */
-public enum ModeloMotocicleta {
+public enum ModeloMotocicleta implements Modelo{
   
     CG125("CG 125"), 
     CB500X("CB 500x"), 
@@ -20,6 +20,7 @@ public enum ModeloMotocicleta {
         this.descricao = descricao;
     }
 
+    @Override
     public String getDescricao() {
         return descricao;
     }

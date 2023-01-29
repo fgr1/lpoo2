@@ -3,18 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Enum.java to edit this template
  */
 package locadora.model.enums;
-
 /**
  *
  * @author Felipe
  */
 public enum Categoria {
-    POPULAR ("Popular"),
-    INTERMEDIARIO ("Intermediário"),
-    LUXO ("Luxo");
+    POPULAR ("POPULAR"),
+    INTERMEDIARIO ("INTERMEDIARIO"),
+    LUXO ("LUXO");
     
     private final String descricao;
-
+    
     private Categoria(String descricao) {
         this.descricao = descricao;
     }

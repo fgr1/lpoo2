@@ -8,11 +8,15 @@ package locadora.model.enums;
  *
  * @author Felipe
  */
-public enum ModeloVan {
+public enum ModeloVan implements Modelo {
    
-    KOMBI("Kombi"), 
-    SPRINTER("Sprinter"), 
-    DUCATO("Ducato");
+    FIORINO ("Fiorino"),
+    SCUDO("Scudo"),
+    DUCATO("Ducato Chassi"),
+    SPIN ("Spin"),
+    TRACKER("Tracker"),
+    EQUINOX("Equinox"),
+    TRAILBRAZER("Trailbrazer");
     
     private final String descricao;
 
@@ -20,6 +24,7 @@ public enum ModeloVan {
         this.descricao = descricao;
     }
 
+    @Override
     public String getDescricao() {
         return descricao;
     }   

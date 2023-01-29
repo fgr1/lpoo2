@@ -10,14 +10,14 @@ package locadora.model.enums;
  */
 public enum Marca {
     
-    VW ("Volkswagen"), 
-    GM ("General Motors"), 
-    FIAT ("Fiat"), 
-    HONDA ("Honda"), 
-    MERCEDES ("Mercedes");
+    Volkswagen ("Volkswagen"), 
+    GM ("GM"), 
+    Fiat ("Fiat"), 
+    Honda ("Honda"), 
+    Mercedes ("Mercedes");
            
     private final String descricao;
-
+    
     private Marca(String descricao) {
         this.descricao = descricao;
     }

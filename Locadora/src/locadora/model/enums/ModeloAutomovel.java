@@ -3,18 +3,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Enum.java to edit this template
  */
 package locadora.model.enums;
-
 /**
  *
  * @author Felipe
  */
-public enum ModeloAutomovel {
+public enum ModeloAutomovel implements Modelo{
     
     GOL("Gol"), 
-    CELTA("Celta"), 
-    PALIO("Palio"), 
+    POLO("Polo"), 
+    JETTA("Jetta"),  
+    MOBI("Mobi"),
+    PALIO("Palio"),
+    ARGO("Argo"), 
+    CRONOS("Cronos"),
+    CELTA("Celta"),
     CRUZE("Cruze"), 
-    NIX("Onix");    
+    ONIX("Onix");    
     
     private final String descricao;
 
@@ -22,6 +26,7 @@ public enum ModeloAutomovel {
         this.descricao = descricao;
     }
 
+    @Override
     public String getDescricao() {
         return descricao;
     }   
