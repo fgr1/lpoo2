@@ -4,7 +4,6 @@
  */
 package locadora.model;
 
-import java.util.Calendar;
 import locadora.model.enums.Categoria;
 import locadora.model.enums.Estado;
 import locadora.model.enums.Marca;
@@ -23,6 +22,15 @@ public class Automovel extends Veiculo {
         this.modelo = modelo;
     }
 
+    public ModeloAutomovel getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(ModeloAutomovel modelo) {
+        this.modelo = modelo;
+    }
+
+    
     @Override
     public double getValorDiariaLocacao() {
         Categoria cat = this.categoria;

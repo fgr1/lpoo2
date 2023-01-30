@@ -36,7 +36,7 @@ public class VeiculoDao {
             stmtAdiciona.setString(6, veiculo.getPlaca());
             stmtAdiciona.setInt(7, veiculo.getAno());
             // Campo de Modelo - presente somente nas classes Automovel, Motocicleta e Van
-            //stmtAdiciona.setString(8, veiculo.);
+            //stmtAdiciona.setString(8, veiculo.getModelo());
             
             
             stmtAdiciona.executeUpdate();

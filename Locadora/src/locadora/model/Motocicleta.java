@@ -21,8 +21,14 @@ public class Motocicleta extends Veiculo {
         super(marca, estado, locacao, categoria, valorDeCompra, placa, ano);
         this.modelo = modelo;
     }
-    
-    
+
+    public ModeloMotocicleta getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(ModeloMotocicleta modelo) {
+        this.modelo = modelo;
+    }
     
     @Override
     public double getValorDiariaLocacao() {

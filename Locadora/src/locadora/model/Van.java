@@ -21,6 +21,14 @@ public class Van extends Veiculo {
         super(marca, estado, locacao, categoria, valorDeCompra, placa, ano);
         this.modelo = modelo;
     }
+
+    public ModeloVan getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(ModeloVan modelo) {
+        this.modelo = modelo;
+    }
     
     
     @Override
