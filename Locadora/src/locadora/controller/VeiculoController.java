@@ -5,6 +5,7 @@
 package locadora.controller;
 
 import locadora.dao.VeiculoDao;
+import locadora.model.Veiculo;
 import locadora.view.JanelaIndex;
 import locadora.view.tela.veiculos.JanelaVeiculos;
 
@@ -14,8 +15,8 @@ import locadora.view.tela.veiculos.JanelaVeiculos;
  */
 public class VeiculoController {
     
-    private JanelaVeiculos view;
-    private VeiculoDao veiculoDao;
+    private final JanelaVeiculos view;
+    private final VeiculoDao veiculoDao;
     
     
     public VeiculoController(JanelaVeiculos view, VeiculoDao veiculoDao) {
@@ -30,11 +31,17 @@ public class VeiculoController {
     }
 
     public void incluirVeiculo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try{
+            Veiculo veiculo = view.getVeiculoForm();
+            veiculoDao.inserir(veiculo);
+            view.apresentaInfo("Adicionado com sucesso!!!");
+        }catch(Exception ex){
+            view.apresentaErro(ex.toString());
+        }
     }
 
     public void limparCampos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        view.limparForm();
     }
 
      public void voltarIndex() {

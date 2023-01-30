@@ -78,7 +78,6 @@ public class JanelaClientes extends javax.swing.JFrame {
     }
     
     public void initView() {
-        /* Create and display the form */
         tabelaClientes1.setJanelaView(this);
         java.awt.EventQueue.invokeLater(() ->  this.setVisible(true));
     }   

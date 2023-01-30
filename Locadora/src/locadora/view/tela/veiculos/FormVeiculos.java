@@ -27,7 +27,7 @@ import static locadora.model.enums.ModeloVan.*;
  */
 public class FormVeiculos extends javax.swing.JPanel {
 
-    /**
+     /**
      * Creates new form FormVeiculos
      */
     public FormVeiculos() {
@@ -476,33 +476,37 @@ public class FormVeiculos extends javax.swing.JPanel {
     }    
 
     public Veiculo getVeiculoFormulario() {
-                String vlr = txtValorCompra.getText();
-                Double d = Double.parseDouble(vlr);
-                String ano = txtPlaca.getText();
-                int a = Integer.parseInt(ano);
-                Marca marca = (Marca) cbxMarca.getSelectedItem();
-                Categoria cat = (Categoria) cbxCategoria.getSelectedItem();
-                
-            if(cbxAtributo.getSelectedItem().equals("Automóvel")){
-                ModeloAutomovel model = (ModeloAutomovel) cbxModelo.getSelectedItem();
+        Veiculo v = null;
+        String vlr = txtValorCompra.getText();
+        Double d = Double.parseDouble(vlr);
+        String ano = txtAno.getText();
+        int a = Integer.parseInt(ano);
+        Marca marca = (Marca) cbxMarca.getSelectedItem();
+        Categoria cat = (Categoria) cbxCategoria.getSelectedItem();
+      
+        if(cbxAtributo.getSelectedItem().equals("Automóvel")){
+            ModeloAutomovel model = (ModeloAutomovel) cbxModelo.getSelectedItem();
 
-                Veiculo v = new Automovel(model, marca, Estado.NOVO, null, cat, d, txtPlaca.getText(), a);
-                return v;
-            }
-            else
-            if(cbxAtributo.getSelectedItem().equals("Motocicleta")) {
-                ModeloMotocicleta model = (ModeloMotocicleta) cbxModelo.getSelectedItem();
+            v = new Automovel(model, marca, Estado.NOVO, null, cat, d, txtPlaca.getText(), a);
+        }
+        else
+        if(cbxAtributo.getSelectedItem().equals("Motocicleta")) {
+            ModeloMotocicleta model = (ModeloMotocicleta) cbxModelo.getSelectedItem();
 
-                Veiculo v = new Motocicleta(model, marca, Estado.NOVO, null, cat, d, txtPlaca.getText(), a);
-                return v;
-            }
-            else
-            if(cbxAtributo.getSelectedItem().equals("Van")){
-                ModeloVan model = (ModeloVan) cbxModelo.getSelectedItem();
+            v = new Motocicleta(model, marca, Estado.NOVO, null, cat, d, txtPlaca.getText(), a);
+        }
+        else
+        if(cbxAtributo.getSelectedItem().equals("Van")){
+            ModeloVan model = (ModeloVan) cbxModelo.getSelectedItem();
 
-                Veiculo v = new Van(model, marca, Estado.NOVO, null, cat, d, txtPlaca.getText(), a);
-                return v;
-            }
-        return null;     
+            v = new Van(model, marca, Estado.NOVO, null, cat, d, txtPlaca.getText(), a);
+        }
+        return v;     
+    }
+    
+    public void limparForm(){
+        txtAno.setText("");
+        txtPlaca.setText("");
+        txtValorCompra.setText("");
     }
 }

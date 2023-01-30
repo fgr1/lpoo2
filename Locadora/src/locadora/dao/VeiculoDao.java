@@ -7,6 +7,9 @@ package locadora.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import locadora.model.Automovel;
+import locadora.model.Motocicleta;
+import locadora.model.Van;
 import locadora.model.Veiculo;
 
 /**
@@ -16,7 +19,7 @@ import locadora.model.Veiculo;
 public class VeiculoDao {
     
     private final ConnectionFactory connectionFactory;
-    private final String insert = "INSERT INTO veiculos (marca, estado, locacao, categoria, valorDeCompra, placa, ano, modelo) VALUES (?,?,?,?,?,?,?,?)";
+    private final String insert = "INSERT INTO veiculos (marca, estado, categoria, valordecompra, placa, ano, modelo) VALUES (?,?,?,?,?,?,?)";
 
     public VeiculoDao(ConnectionFactory conFactory) {
         this.connectionFactory = conFactory;
@@ -28,19 +31,21 @@ public class VeiculoDao {
             
             PreparedStatement stmtAdiciona = connection.prepareStatement(insert);
             
-            stmtAdiciona.setString(1, veiculo.getMarca().getDescricao());
-            stmtAdiciona.setString(2, veiculo.getEstado().getDescricao());
-            stmtAdiciona.setString(3, veiculo.getLocacao().toString());
-            stmtAdiciona.setString(4, veiculo.getCategoria().getDescricao());
-            stmtAdiciona.setDouble(5, veiculo.getValorDeCompra());
-            stmtAdiciona.setString(6, veiculo.getPlaca());
-            stmtAdiciona.setInt(7, veiculo.getAno());
-            // Campo de Modelo - presente somente nas classes Automovel, Motocicleta e Van
-            //stmtAdiciona.setString(8, veiculo.getModelo());
-            
-            
-            stmtAdiciona.executeUpdate();
-  
+            stmtAdiciona.setString(1, veiculo.getMarca().toString());
+            stmtAdiciona.setString(2, veiculo.getEstado().toString());
+            stmtAdiciona.setString(3, veiculo.getCategoria().toString());
+            stmtAdiciona.setDouble(4, veiculo.getValorDeCompra());
+            stmtAdiciona.setString(5, veiculo.getPlaca());
+            stmtAdiciona.setInt(6, veiculo.getAno());
+            if (veiculo instanceof Automovel v) {
+                System.out.println(v.getModelo().toString());
+                stmtAdiciona.setString(7, v.getModelo().toString());
+            } else if (veiculo instanceof Motocicleta v) {
+                stmtAdiciona.setString(7, v.getModelo().toString());
+            } else if (veiculo instanceof Van v) {
+                stmtAdiciona.setString(7, v.getModelo().toString());
+            }
+        stmtAdiciona.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } 

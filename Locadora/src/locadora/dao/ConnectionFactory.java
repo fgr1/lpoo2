@@ -19,7 +19,7 @@ public class ConnectionFactory {
     
     public Connection getConnection() {
         try {
-            return DriverManager.getConnection("jdbc:postgresql://localhost/locadora", "postgres", "postgres");
+            return DriverManager.getConnection("jdbc:postgresql://localhost/locadora", "postgres", "juju1219");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

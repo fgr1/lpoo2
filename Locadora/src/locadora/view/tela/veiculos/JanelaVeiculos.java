@@ -97,11 +97,17 @@ public class JanelaVeiculos extends javax.swing.JFrame {
        JOptionPane.showMessageDialog(null,erro + "\n", "Erro", JOptionPane.ERROR_MESSAGE);
     }
     
+    public void apresentaInfo(String info) {
+        JOptionPane.showMessageDialog(null,info + "\n", "Informação", JOptionPane.INFORMATION_MESSAGE);
+    }
+    
     public BotoesVeiculos getBotoesVeiculoView() {
        return botoesVeiculos1;
     }  
     public FormVeiculos getFormularioVeiculoView() {
        return formVeiculos1;
     } 
-
+    public void limparForm(){
+        formVeiculos1.limparForm();
+    }
 }

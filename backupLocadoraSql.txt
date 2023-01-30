@@ -27,3 +27,6 @@ create table veiculos
 	modelo varchar(250),
 	constraint pkveiculo primary key (id)
 );
+
+insert into veiculos (marca, estado, locacao, categoria, valordecompra, placa, ano, modelo)
+values ('Volkswagen', 'NOVO', null, 'POPULAR', 25000, 'AAA-1234', 2015, 'GOL');
