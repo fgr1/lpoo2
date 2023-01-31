@@ -23,10 +23,9 @@ public abstract class Veiculo implements VeiculoI {
     private String placa;
     private int ano;
 
-    public Veiculo(Marca marca, Estado estado, Locacao locacao, Categoria categoria, double valorDeCompra, String placa, int ano) {
+    public Veiculo(Marca marca, Estado estado, Categoria categoria, double valorDeCompra, String placa, int ano) {
         this.marca = marca;
         this.estado = estado;
-        this.locacao = locacao;
         this.categoria = categoria;
         this.valorDeCompra = valorDeCompra;
         this.placa = placa;

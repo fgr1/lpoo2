@@ -16,8 +16,7 @@ import locadora.view.tela.veiculos.JanelaVeiculos;
 public class VeiculoController {
     
     private final JanelaVeiculos view;
-    private final VeiculoDao veiculoDao;
-    
+    private final VeiculoDao veiculoDao;  
     
     public VeiculoController(JanelaVeiculos view, VeiculoDao veiculoDao) {
         this.view = view;

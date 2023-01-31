@@ -25,6 +25,7 @@ create table veiculos
     	placa varchar(8),
     	ano integer,
 	modelo varchar(250),
+	tipo VARCHAR(250),
 	constraint pkveiculo primary key (id)
 );
 

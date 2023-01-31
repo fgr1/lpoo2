@@ -11,6 +11,7 @@ import locadora.dao.VeiculoDao;
 import locadora.view.tela.clientes.JanelaClientes;
 import locadora.view.JanelaIndex;
 import locadora.view.tela.veiculos.JanelaVeiculos;
+import locadora.view.tela.vendas.JanelaVendas;
 
 /**
  *
@@ -59,6 +60,9 @@ public class IndexController {
     }
 
     public void venderView() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        JanelaVendas view = new JanelaVendas();
+        VeiculoDao veiculoDao = new VeiculoDao(new ConnectionFactory());
+        VendasController controller = new VendasController(view,veiculoDao);
+        janela.dispose();
     }
 }

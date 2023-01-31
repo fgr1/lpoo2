@@ -487,19 +487,19 @@ public class FormVeiculos extends javax.swing.JPanel {
         if(cbxAtributo.getSelectedItem().equals("Automóvel")){
             ModeloAutomovel model = (ModeloAutomovel) cbxModelo.getSelectedItem();
 
-            v = new Automovel(model, marca, Estado.NOVO, null, cat, d, txtPlaca.getText(), a);
+            v = new Automovel(model, marca, Estado.NOVO, cat, d, txtPlaca.getText(), a);
         }
         else
         if(cbxAtributo.getSelectedItem().equals("Motocicleta")) {
             ModeloMotocicleta model = (ModeloMotocicleta) cbxModelo.getSelectedItem();
 
-            v = new Motocicleta(model, marca, Estado.NOVO, null, cat, d, txtPlaca.getText(), a);
+            v = new Motocicleta(model, marca, Estado.NOVO, cat, d, txtPlaca.getText(), a);
         }
         else
         if(cbxAtributo.getSelectedItem().equals("Van")){
             ModeloVan model = (ModeloVan) cbxModelo.getSelectedItem();
 
-            v = new Van(model, marca, Estado.NOVO, null, cat, d, txtPlaca.getText(), a);
+            v = new Van(model, marca, Estado.NOVO, cat, d, txtPlaca.getText(), a);
         }
         return v;     
     }

@@ -72,7 +72,7 @@ public class TabelaClientes extends javax.swing.JPanel {
     private javax.swing.JTable tabelaClientes;
     // End of variables declaration//GEN-END:variables
 
-public void setJanelaView(JanelaClientes janela) {
+    public void setJanelaView(JanelaClientes janela) {
         this.janela = janela;
     }
     
