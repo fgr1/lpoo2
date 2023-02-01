@@ -30,6 +30,7 @@ public class VeiculoDao {
     private final ConnectionFactory connectionFactory;
     private final String insert = "INSERT INTO veiculos (marca, estado, categoria, valordecompra, placa, ano, modelo, tipo) VALUES (?,?,?,?,?,?,?,?)";
     private final String vender = "UPDATE veiculos SET estado = 'VENDIDO' WHERE placa = ?";
+    private final String selectVendas = "SELECT * FROM veiculos WHERE estado != 'VENDIDO'";
     
     public VeiculoDao(ConnectionFactory conFactory) {
         this.connectionFactory = conFactory;
@@ -82,27 +83,15 @@ public class VeiculoDao {
         }
     } 
     
-    public List<Veiculo> getLista(String col, String filtro) throws SQLException {
+    public List<Veiculo> getListaParaVender() throws SQLException {
         Connection connection=connectionFactory.getConnection();
-        ResultSet rs = null;
-        
-        String selectFiltro = "";
-        switch (col) {
-            // LEMBRAR DE ALTERAR "estado = 'DISPONIVEL'" ANTES DE APRESENTAR //
-            case "Tipo" -> selectFiltro = "SELECT * FROM veiculos WHERE estado = 'NOVO' AND tipo = ?";
-            case "Categoria" -> selectFiltro = "SELECT * FROM veiculos WHERE estado = 'NOVO' AND categoria = ?";
-            case "Marca" -> selectFiltro = "SELECT * FROM veiculos WHERE estado = 'NOVO' AND marca = ?";
-            default -> {
-            }
-        }
-        
-        PreparedStatement stmtLista = connection.prepareStatement(selectFiltro);
+        ResultSet rs = null;    
+        PreparedStatement stmtLista = connection.prepareStatement(selectVendas);
         List<Veiculo> veiculos = new ArrayList();
-        try {
-            stmtLista.setString(1, filtro);     
+        try { 
             rs = stmtLista.executeQuery();
             while (rs.next()) {
-                String type = rs.getString("tipo");;
+                String type = rs.getString("tipo");
                 Veiculo v = null;
                 if (type.equals("Automovel")) {
                   v = new Automovel(
@@ -143,7 +132,7 @@ public class VeiculoDao {
           rs.close();
           stmtLista.close();
           connection.close();
-        }      
+        }
         return veiculos;
     }
 }

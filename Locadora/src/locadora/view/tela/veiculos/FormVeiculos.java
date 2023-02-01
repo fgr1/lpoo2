@@ -27,6 +27,9 @@ import static locadora.model.enums.ModeloVan.*;
  */
 public class FormVeiculos extends javax.swing.JPanel {
 
+    Marca marca;
+    Categoria categoria;
+    ArrayList<Modelo> lista = new ArrayList();
      /**
      * Creates new form FormVeiculos
      */
@@ -62,6 +65,7 @@ public class FormVeiculos extends javax.swing.JPanel {
         txtAno = new javax.swing.JFormattedTextField();
 
         cbxAtributo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Automóvel", "Motocicleta", "Van"}));
+        cbxAtributo.setSelectedItem(cbxAtributo);
         cbxAtributo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         cbxAtributo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,6 +86,8 @@ public class FormVeiculos extends javax.swing.JPanel {
         lModelo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lModelo.setText("Modelo");
 
+        cbxMarca.setSelectedItem(cbxMarca);
+        cbxAtributo.getSelectedItem().toString();
         cbxMarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxMarcaActionPerformed(evt);
@@ -171,11 +177,6 @@ public class FormVeiculos extends javax.swing.JPanel {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtPlaca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPlacaActionPerformed(evt);
-            }
-        });
 
         txtValorCompra.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
         txtValorCompra.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -263,6 +264,7 @@ public class FormVeiculos extends javax.swing.JPanel {
 
     private void cbxAtributoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxAtributoActionPerformed
         try{
+
             if(cbxAtributo.getSelectedItem().equals("Automóvel")){
                 cbxMarca.removeAllItems();
                 cbxModelo.removeAllItems();
@@ -283,6 +285,9 @@ public class FormVeiculos extends javax.swing.JPanel {
                 cbxMarca.addItem(Marca.GM);
                 cbxMarca.addItem(Marca.Fiat);
             }
+            marca = (Marca) cbxMarca.getSelectedItem();
+            categoria = (Categoria) cbxCategoria.getSelectedItem();
+            
         } catch (Exception e){
             System.out.println(e);
         }
@@ -290,30 +295,29 @@ public class FormVeiculos extends javax.swing.JPanel {
 
     private void cbxCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCategoriaActionPerformed
         try{
-            ArrayList<Modelo> listaModelo;
-            Marca marca = (Marca) cbxMarca.getSelectedItem();
-            Categoria categoria = (Categoria) cbxCategoria.getSelectedItem();
-
+ 
+            marca = (Marca) cbxMarca.getSelectedItem();
+            categoria = (Categoria) cbxCategoria.getSelectedItem();
             if(cbxAtributo.getSelectedItem().equals("Automóvel")){
                 cbxModelo.removeAllItems();
-                listaModelo = getListaAutomovel(marca, categoria);
-                for(Modelo m : listaModelo){
+                lista = getListaAutomovel(marca, categoria);         
+                for(Modelo m : lista){
                     cbxModelo.addItem(m);
                 }
             }
             else
             if(cbxAtributo.getSelectedItem().equals("Motocicleta")) {
                 cbxModelo.removeAllItems();
-                listaModelo = getListaMotocicleta(marca, categoria);
-                for(Modelo m : listaModelo){
+                lista = getListaMotocicleta(marca, categoria);
+                for(Modelo m : lista){
                     cbxModelo.addItem(m);
                 }
             }
             else
             if(cbxAtributo.getSelectedItem().equals("Van")){
                 cbxModelo.removeAllItems();
-                listaModelo = getListaVan(marca, categoria);
-                for(Modelo m : listaModelo){
+                lista = getListaVan(marca, categoria);
+                for(Modelo m : lista){
                     cbxModelo.addItem(m);
                 }
             }
@@ -325,30 +329,30 @@ public class FormVeiculos extends javax.swing.JPanel {
 
     private void cbxMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxMarcaActionPerformed
         try{
-            ArrayList<Modelo> listaModelo;
-            Marca marca = (Marca) cbxMarca.getSelectedItem();
-            Categoria categoria = (Categoria) cbxCategoria.getSelectedItem();
+
+            marca = (Marca) cbxMarca.getSelectedItem();
+            categoria = (Categoria) cbxCategoria.getSelectedItem();
 
             if(cbxAtributo.getSelectedItem().equals("Automóvel")){
                 cbxModelo.removeAllItems();
-                listaModelo = getListaAutomovel(marca, categoria);
-                for(Modelo m : listaModelo){
+                lista = getListaAutomovel(marca, categoria);
+                for(Modelo m : lista){
                     cbxModelo.addItem(m);
                 }
             }
             else
             if(cbxAtributo.getSelectedItem().equals("Motocicleta")) {
                 cbxModelo.removeAllItems();
-                listaModelo = getListaMotocicleta(marca, categoria);
-                for(Modelo m : listaModelo){
+                lista = getListaMotocicleta(marca, categoria);
+                for(Modelo m : lista){
                     cbxModelo.addItem(m);
                 }
             }
             else
             if(cbxAtributo.getSelectedItem().equals("Van")){
                 cbxModelo.removeAllItems();
-                listaModelo = getListaVan(marca, categoria);
-                for(Modelo m : listaModelo){
+                lista = getListaVan(marca, categoria);
+                for(Modelo m : lista){
                     cbxModelo.addItem(m);
                 }
             }
@@ -357,10 +361,6 @@ public class FormVeiculos extends javax.swing.JPanel {
             System.out.println(e);
         }
     }//GEN-LAST:event_cbxMarcaActionPerformed
-
-    private void txtPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPlacaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPlacaActionPerformed
 
     private void txtValorCompraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorCompraKeyTyped
         char c = evt.getKeyChar();

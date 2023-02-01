@@ -4,6 +4,7 @@
  */
 package locadora.view.tela.vendas;
 
+import javax.swing.DefaultComboBoxModel;
 import locadora.controller.VendasController;
 import locadora.model.enums.Categoria;
 import locadora.model.enums.Marca;
@@ -14,12 +15,19 @@ import locadora.model.enums.Marca;
  * @author Felipe
  */
 public class FormPesquisar extends javax.swing.JPanel {
-
+    
     /**
      * Creates new form BotaoPesquisar
      */
     public FormPesquisar() {
         initComponents();
+        cbxAtributo.addItem("None");
+        cbxCategoria.addItem("None");
+        cbxMarca.addItem("None");
+        
+        cbxAtributo.setSelectedItem("None");
+        cbxCategoria.setSelectedItem("None");
+        cbxMarca.setSelectedItem("None");
     }
 
     /**
@@ -32,99 +40,125 @@ public class FormPesquisar extends javax.swing.JPanel {
     private void initComponents() {
 
         btnPesquisar = new javax.swing.JButton();
-        cbxPesquisa = new javax.swing.JComboBox<>();
-        cbxFiltro = new javax.swing.JComboBox<>();
+        cbxAtributo = new javax.swing.JComboBox<>();
+        cbxCategoria = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        cbxMarca = new javax.swing.JComboBox<>();
 
         btnPesquisar.setText("Pesquisar");
 
-        cbxPesquisa.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbxPesquisa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo", "Categoria", "Marca", " " }));
-        cbxPesquisa.setSelectedItem(cbxPesquisa);
-        cbxPesquisa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxPesquisaActionPerformed(evt);
-            }
-        });
+        cbxAtributo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cbxAtributo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Automovel", "Motocicleta", "Van"}));
+
+        cbxCategoria.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cbxCategoria.setModel(new DefaultComboBoxModel(Categoria.values()));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setText("Tipo");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setText("Categoria");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setText("Marca");
+
+        cbxMarca.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cbxMarca.setModel(new DefaultComboBoxModel(Marca.values()));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cbxPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(cbxFiltro, 0, 152, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(394, Short.MAX_VALUE)
+                        .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                                .addComponent(cbxAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cbxCategoria, 0, 200, Short.MAX_VALUE)
+                                    .addComponent(cbxMarca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbxPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbxFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbxAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbxMarca, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(jLabel3))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbxPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxPesquisaActionPerformed
-        try{
-            if(cbxPesquisa.getSelectedItem().equals("Tipo")){
-                cbxFiltro.removeAllItems();
-                cbxFiltro.addItem("Automovel");
-                cbxFiltro.addItem("Motocicleta");
-                cbxFiltro.addItem("Van");
-            }
-            else
-            if(cbxPesquisa.getSelectedItem().equals("Categoria")){
-                cbxFiltro.removeAllItems();
-                cbxFiltro.addItem(Categoria.POPULAR.toString());
-                cbxFiltro.addItem(Categoria.INTERMEDIARIO.toString());
-                cbxFiltro.addItem(Categoria.LUXO.toString());
-            }
-            else
-            if(cbxPesquisa.getSelectedItem().equals("Marca")) {
-                cbxFiltro.removeAllItems();
-                cbxFiltro.addItem(Marca.Fiat.toString());
-                cbxFiltro.addItem(Marca.GM.toString());
-                cbxFiltro.addItem(Marca.Honda.toString());
-                cbxFiltro.addItem(Marca.Mercedes.toString());
-                cbxFiltro.addItem(Marca.Volkswagen.toString());
-            }
-            else
-                cbxFiltro.removeAllItems();
-                
-        } catch (Exception e){
-            System.out.println(e);
-        }
-    }//GEN-LAST:event_cbxPesquisaActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPesquisar;
-    private javax.swing.JComboBox<String> cbxFiltro;
-    private javax.swing.JComboBox<String> cbxPesquisa;
+    private javax.swing.JComboBox<String> cbxAtributo;
+    private javax.swing.JComboBox<String> cbxCategoria;
+    private javax.swing.JComboBox<String> cbxMarca;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
     
     public void setController(VendasController controller) {
         this.btnPesquisar.addActionListener(e -> controller.pesquisarVeiculo());
     } 
     
-    public String getPesquisa(){
-        return cbxPesquisa.getSelectedItem().toString();
+    public String getAtributo(){
+        String atributo = null;
+        if (cbxAtributo != null) {
+            atributo = (String) cbxAtributo.getSelectedItem();
+            if (atributo == null) {
+                atributo = "None";
+            }
+        }
+        return atributo;
     }
     
-    public String getFiltro(){
-        String filtro;
-        if(cbxFiltro.getSelectedItem().toString() == null)
-            filtro = "VAZIO";
-        else
-            filtro = cbxFiltro.getSelectedItem().toString();
-        
-        return filtro;
+    public String getCategoria(){
+        String categoria = null;
+        if (cbxCategoria != null) {
+            categoria = cbxCategoria.getSelectedItem().toString();
+            if (categoria == null) {
+                categoria= "None";
+            }
+        }
+        return categoria;
     }
-}
+    
+    public String getMarca(){
+        String marca = null;
+        if (cbxMarca != null) {
+            marca = cbxMarca.getSelectedItem().toString();
+            if (marca == null) {
+                marca = "None";
+            }
+        }
+        return marca;
+    }
+}           

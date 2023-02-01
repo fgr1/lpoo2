@@ -4,9 +4,15 @@
  */
 package locadora.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import locadora.dao.VeiculoDao;
+import locadora.model.Automovel;
+import locadora.model.Motocicleta;
+import locadora.model.Van;
 import locadora.model.Veiculo;
+import locadora.model.enums.Categoria;
+import locadora.model.enums.Marca;
 import locadora.view.JanelaIndex;
 import locadora.view.tela.vendas.JanelaVendas;
 
@@ -18,6 +24,7 @@ public class VendasController {
 
     private final JanelaVendas view;
     private final VeiculoDao veiculoDao;
+    private List<Veiculo> veiculoFiltroList = new ArrayList<>();
 
     public VendasController(JanelaVendas view, VeiculoDao veiculoDao) {
         this.view = view;
@@ -38,9 +45,9 @@ public class VendasController {
 
     public void venderVeiculo() {
         try{
-            List<Veiculo> listaParaVender = view.getVeiculosParaExcluir();
+            List<Veiculo> listaParaVender = view.getVeiculosParaVender();
             veiculoDao.venderLista(listaParaVender);
-            view.excluirClienteView(listaParaVender);
+            view.excluirVeiculoView(listaParaVender);
         }catch(Exception ex){
             view.apresentaErro(ex.toString());
         }
@@ -48,14 +55,75 @@ public class VendasController {
 
     public void pesquisarVeiculo() {
         try{
-            String col = view.getPesquisaForm();
-            String filtro = view.getFiltroForm();
-            List<Veiculo> lista = this.veiculoDao.getLista(col, filtro);
-            view.mostrarListaVeiculos(lista);            
+            String categoria = view.getCategoriaForm();
+            String marca = view.getMarcaForm();
+            String atributo = view.getAtributoForm();
+            List<Veiculo> lista = this.veiculoDao.getListaParaVender();                   
+                        
+            veiculoFiltroList = filtarAtributo(lista, atributo);
+            veiculoFiltroList = filtarCategoria(veiculoFiltroList, categoria);
+            veiculoFiltroList = filtarMarca(veiculoFiltroList, marca);
+
+            view.mostrarListaVeiculos(veiculoFiltroList);            
         }catch(Exception ex){
             ex.printStackTrace();
             view.apresentaErro(ex.toString());
         }
     }
+    
+    public List<Veiculo> filtarAtributo(List<Veiculo> lista, String atributo){
+        List<Veiculo> listaFiltro = new ArrayList<>(); 
+        for(Veiculo v: lista){
+            switch (atributo) {
+                case "Automovel" -> {
+                    if(v instanceof Automovel){
+                        listaFiltro.add(v);
+                    }
+                }
+                case "Motocicleta" -> {
+                    if(v instanceof Motocicleta){
+                        listaFiltro.add(v);
+                    }
+                }
+                case "Van" -> {
+                    if(v instanceof Van){
+                        listaFiltro.add(v);
+                    }
+                }
+                default -> {
+                    return lista;
+                }
+            }
+        }
+        return listaFiltro;
+    }
+
+
+    public List<Veiculo> filtarCategoria(List<Veiculo> lista, String categoria){
+        if (categoria.equals("None")) {
+            return lista;
+        } else {
+            List<Veiculo> listaFiltro = new ArrayList<>(); 
+            for(Veiculo v: lista){
+                if(v.getCategoria().toString().equals(categoria))
+                    listaFiltro.add(v); 
+            }
+            return listaFiltro; 
+        }
+    }
+    
+    public List<Veiculo> filtarMarca (List<Veiculo> lista, String marca){
+        if (marca.equals("None")) {
+            return lista;
+        } else {
+            List<Veiculo> listaFiltro = new ArrayList<>(); 
+            for(Veiculo v: lista){
+                if(v.getMarca().toString().equals(marca))
+                    listaFiltro.add(v); 
+            }
+            return listaFiltro; 
+        }
+    }
+
     
 }

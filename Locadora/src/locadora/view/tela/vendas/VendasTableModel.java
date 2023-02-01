@@ -4,6 +4,7 @@
  */
 package locadora.view.tela.vendas;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -70,7 +71,7 @@ public class VendasTableModel extends AbstractTableModel {
                     return v.getModelo();
                 }
             case 3: return veiculo.getAno();  
-            case 4: return veiculo.getValorParaVenda();   
+            case 4: return NumberFormat.getCurrencyInstance().format(veiculo.getValorParaVenda());  
             default : return null;
         }
     }

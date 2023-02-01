@@ -80,6 +80,9 @@
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Autom&#xf3;vel&quot;, &quot;Motocicleta&quot;, &quot;Van&quot;})" type="code"/>
             </Property>
+            <Property name="selectedItem" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="cbxAtributo" type="bean"/>
+            </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Default Cursor"/>
             </Property>
@@ -177,10 +180,16 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="cbxMarca">
+              <Properties>
+                <Property name="selectedItem" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection component="cbxMarca" type="bean"/>
+                </Property>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxMarcaActionPerformed"/>
               </Events>
               <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="cbxAtributo.getSelectedItem().toString();"/>
                 <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="ComboBoxVeiculos_cbxMarca"/>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Marca&gt;"/>
               </AuxValues>
@@ -283,9 +292,6 @@
               <Format format="UUU-####" subtype="-1" type="5"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPlacaActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="txtValorCompra">
           <Properties>

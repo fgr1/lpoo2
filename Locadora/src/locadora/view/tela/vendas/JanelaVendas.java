@@ -8,6 +8,8 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import locadora.controller.VendasController;
 import locadora.model.Veiculo;
+import locadora.model.enums.Categoria;
+import locadora.model.enums.Marca;
 
 /**
  *
@@ -33,8 +35,8 @@ public class JanelaVendas extends javax.swing.JFrame {
 
         tabelaVendas1 = new locadora.view.tela.vendas.TabelaVendas();
         botaoVender1 = new locadora.view.tela.vendas.BotaoVender();
-        botaoPesquisar1 = new locadora.view.tela.vendas.FormPesquisar();
         botaoVoltar1 = new locadora.view.tela.vendas.BotaoVoltar();
+        formPesquisar2 = new locadora.view.tela.vendas.FormPesquisar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,28 +45,30 @@ public class JanelaVendas extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(botaoVender1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(118, 118, 118)
                         .addComponent(botaoVoltar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(botaoPesquisar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tabelaVendas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tabelaVendas1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(formPesquisar2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(botaoPesquisar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(formPesquisar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tabelaVendas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botaoVender1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoVoltar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -75,14 +79,14 @@ public class JanelaVendas extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private locadora.view.tela.vendas.FormPesquisar botaoPesquisar1;
     private locadora.view.tela.vendas.BotaoVender botaoVender1;
     private locadora.view.tela.vendas.BotaoVoltar botaoVoltar1;
+    private locadora.view.tela.vendas.FormPesquisar formPesquisar2;
     private locadora.view.tela.vendas.TabelaVendas tabelaVendas1;
     // End of variables declaration//GEN-END:variables
 
     public void setController(VendasController controller) {
-       botaoPesquisar1.setController(controller);
+       formPesquisar2.setController(controller);
        botaoVender1.setController(controller);
        botaoVoltar1.setController(controller);
     }
@@ -100,28 +104,32 @@ public class JanelaVendas extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,info + "\n", "Informação", JOptionPane.INFORMATION_MESSAGE);
     }
     
-    public List<Veiculo> getVeiculosParaExcluir() {
+    public List<Veiculo> getVeiculosParaVender() {
        return this.tabelaVendas1.getVeiculosParaVenderDaTabela();
     }
     
-    public void excluirClienteView(List<Veiculo> listaParaExcluir) {
+    public void excluirVeiculoView(List<Veiculo> listaParaExcluir) {
        tabelaVendas1.excluirVeiculosDaTabela(listaParaExcluir);
     }
     
     public FormPesquisar getBotaoPesquisarVendaView() {
-       return botaoPesquisar1;
+       return formPesquisar2;
     }  
     
     public void mostrarListaVeiculos(List<Veiculo> lista) {
         tabelaVendas1.setListaVeiculosTabela(lista);
     }
 
-    public String getPesquisaForm() {
-        return this.botaoPesquisar1.getPesquisa();
+    public String getAtributoForm() {
+        return this.formPesquisar2.getAtributo();
     }
 
-    public String getFiltroForm() {
-        return this.botaoPesquisar1.getFiltro();
+    public String getCategoriaForm() {
+        return this.formPesquisar2.getCategoria();
+    }
+    
+    public String getMarcaForm() {
+        return this.formPesquisar2.getMarca();
     }
     
     public TabelaVendas getTabelaVendasView() {

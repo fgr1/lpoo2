@@ -19,7 +19,6 @@ create table veiculos
 	id serial,
     	marca varchar(250),
     	estado varchar(250),
-    	locacao varchar(250),
     	categoria varchar(250),
     	valorDeCompra numeric,
     	placa varchar(8),

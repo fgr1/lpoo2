@@ -30,6 +30,7 @@ public class BotaoVoltar extends javax.swing.JPanel {
 
         btnVoltar = new javax.swing.JButton();
 
+        btnVoltar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnVoltar.setText("Voltar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
