@@ -7,9 +7,11 @@ package locadora.controller;
 import javax.swing.JFrame;
 import locadora.dao.ClienteDao;
 import locadora.dao.ConnectionFactory;
+import locadora.dao.LocacaoDao;
 import locadora.dao.VeiculoDao;
 import locadora.view.tela.clientes.JanelaClientes;
 import locadora.view.JanelaIndex;
+import locadora.view.tela.locacao.JanelaLocacao;
 import locadora.view.tela.veiculos.JanelaVeiculos;
 import locadora.view.tela.vendas.JanelaVendas;
 
@@ -52,7 +54,10 @@ public class IndexController {
     }
 
     public void locarView() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        JanelaLocacao view = new JanelaLocacao();
+        LocacaoDao locacaoDao = new LocacaoDao(new ConnectionFactory());
+        LocacaoController controller = new LocacaoController(view,locacaoDao);
+        janela.dispose();
     }
 
     public void quitProgram() {
