@@ -22,8 +22,6 @@ import locadora.view.tela.vendas.JanelaVendas;
 public class IndexController {
    
     private JanelaIndex janela;
-    private ClienteDao clienteDao;
-    private VeiculoDao veiculoDao;
 
     public IndexController(JanelaIndex janela) {
         this.janela = janela;
@@ -56,7 +54,8 @@ public class IndexController {
     public void locarView() {
         JanelaLocacao view = new JanelaLocacao();
         LocacaoDao locacaoDao = new LocacaoDao(new ConnectionFactory());
-        LocacaoController controller = new LocacaoController(view,locacaoDao);
+        VeiculoDao veiculoDao = new VeiculoDao(new ConnectionFactory());
+        LocacaoController controller = new LocacaoController(view, locacaoDao);
         janela.dispose();
     }
 

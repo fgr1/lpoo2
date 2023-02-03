@@ -4,9 +4,12 @@
  */
 package locadora.view.tela.locacao;
 
+import java.util.List;
 import javax.swing.JOptionPane;
+import locadora.controller.ClienteController;
 import locadora.controller.LocacaoController;
-import locadora.controller.VeiculoController;
+import locadora.controller.VendasController;
+import locadora.model.Cliente;
 import locadora.model.Veiculo;
 
 /**
@@ -93,9 +96,6 @@ public class JanelaLocacao extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() ->  this.setVisible(true));
     }
     
-    public Veiculo getVeiculoForm() {
-       return this.formDados1.getVeiculoFormulario();
-    }
     public void apresentaErro(String erro) {
        JOptionPane.showMessageDialog(null,erro + "\n", "Erro", JOptionPane.ERROR_MESSAGE);
     }
@@ -104,4 +104,47 @@ public class JanelaLocacao extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,info + "\n", "Informação", JOptionPane.INFORMATION_MESSAGE);
     }
 
+    public void setClientFormView(Cliente cliente) {
+        formDados1.setCliente(cliente);
+    }
+    
+    public Veiculo getVeiculoParaLocarDaTabelaView() {
+       return this.tabelaLocacao1.getVeiculoParaLocarDaTabela();
+    }
+        
+    public void excluirVeiculoView(Veiculo veiculo) {
+       tabelaLocacao1.excluirVeiculosDaTabela(veiculo);
+    }
+    
+    public void mostrarListaVeiculosView(List<Veiculo> lista) {
+        tabelaLocacao1.setListaVeiculosTabela(lista);
+    }
+    
+    public String getAtributoFormView() {
+        return this.formDados1.getAtributo();
+    }
+
+    public String getCategoriaFormView() {
+        return this.formDados1.getCategoria();
+    }
+    
+    public String getMarcaFormView() {
+        return this.formDados1.getMarca();
+    }
+    
+    public String getCpfClienteFormView() {
+        return this.formDados1.getClienteCpf();
+    }
+
+    public String getNomeClienteFormView() {
+        return this.formDados1.getClienteNome();
+    }
+    
+    public String getSobrenomeClienteFormView() {
+        return this.formDados1.getClienteSobrenome();
+    }
+
+    public void limparFormClienteView() {
+        formDados1.limparForm();
+    }
 }

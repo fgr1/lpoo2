@@ -5,7 +5,10 @@
 package locadora.view.tela.locacao;
 
 import javax.swing.DefaultComboBoxModel;
+import locadora.controller.ClienteController;
 import locadora.controller.LocacaoController;
+import locadora.controller.VendasController;
+import locadora.model.Cliente;
 import locadora.model.Veiculo;
 import locadora.model.enums.Categoria;
 import locadora.model.enums.Marca;
@@ -15,6 +18,8 @@ import locadora.model.enums.Marca;
  * @author Felipe
  */
 public class FormDados extends javax.swing.JPanel {
+    
+    private Cliente clientePesquisado;
 
     /**
      * Creates new form FormLocacao
@@ -207,8 +212,11 @@ public class FormDados extends javax.swing.JPanel {
         this.btnPesquisarCliente.addActionListener(e -> controller.pesquisarClientes());
     }
     
-    Veiculo getVeiculoFormulario() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void setCliente(Cliente cliente) {
+        this.clientePesquisado = cliente;
+        txtNome.setText(cliente.getNome());
+        txtSobrenome.setText(cliente.getSobrenome());
+        txtCpf.setText(cliente.getCpf());     
     }
     
     public String getAtributo(){
@@ -275,5 +283,11 @@ public class FormDados extends javax.swing.JPanel {
             }
         }
         return sobrenome;
+    }
+
+    void limparForm() {
+        txtCpf.setText("");
+        txtNome.setText("");
+        txtSobrenome.setText("");
     }
 }

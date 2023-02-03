@@ -92,10 +92,4 @@ public class TabelaVendas extends javax.swing.JPanel {
     public void excluirVeiculosDaTabela(List<Veiculo> listaParaExcluir) {
         modeloTabelaVenda.removeVeiculos(listaParaExcluir);
     }
-
-    public void atualizarVeiculoNaTabela(Veiculo veiculo) {
-        
-        modeloTabelaVenda.fireTableRowsUpdated(linhaClicadaParaAtualizacao, linhaClicadaParaAtualizacao);
-        
-    } 
 }

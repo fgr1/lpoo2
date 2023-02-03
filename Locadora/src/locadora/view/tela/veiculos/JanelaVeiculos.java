@@ -107,7 +107,7 @@ public class JanelaVeiculos extends javax.swing.JFrame {
     public FormVeiculos getFormularioVeiculoView() {
        return formVeiculos1;
     } 
-    public void limparForm(){
+    public void limparFormView(){
         formVeiculos1.limparForm();
     }
 }

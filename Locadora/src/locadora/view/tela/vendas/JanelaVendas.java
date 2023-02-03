@@ -104,7 +104,7 @@ public class JanelaVendas extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,info + "\n", "Informação", JOptionPane.INFORMATION_MESSAGE);
     }
     
-    public List<Veiculo> getVeiculosParaVender() {
+    public List<Veiculo> getVeiculosParaVenderView() {
        return this.tabelaVendas1.getVeiculosParaVenderDaTabela();
     }
     
@@ -112,27 +112,19 @@ public class JanelaVendas extends javax.swing.JFrame {
        tabelaVendas1.excluirVeiculosDaTabela(listaParaExcluir);
     }
     
-    public FormPesquisar getBotaoPesquisarVendaView() {
-       return formPesquisar2;
-    }  
-    
-    public void mostrarListaVeiculos(List<Veiculo> lista) {
+    public void mostrarListaVeiculosView(List<Veiculo> lista) {
         tabelaVendas1.setListaVeiculosTabela(lista);
     }
 
-    public String getAtributoForm() {
+    public String getAtributoFormView() {
         return this.formPesquisar2.getAtributo();
     }
 
-    public String getCategoriaForm() {
+    public String getCategoriaFormView() {
         return this.formPesquisar2.getCategoria();
     }
     
-    public String getMarcaForm() {
+    public String getMarcaFormView() {
         return this.formPesquisar2.getMarca();
-    }
-    
-    public TabelaVendas getTabelaVendasView() {
-       return tabelaVendas1;
     }
 }

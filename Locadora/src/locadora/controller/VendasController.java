@@ -11,8 +11,6 @@ import locadora.model.Automovel;
 import locadora.model.Motocicleta;
 import locadora.model.Van;
 import locadora.model.Veiculo;
-import locadora.model.enums.Categoria;
-import locadora.model.enums.Marca;
 import locadora.view.JanelaIndex;
 import locadora.view.tela.vendas.JanelaVendas;
 
@@ -45,7 +43,7 @@ public class VendasController {
 
     public void venderVeiculo() {
         try{
-            List<Veiculo> listaParaVender = view.getVeiculosParaVender();
+            List<Veiculo> listaParaVender = view.getVeiculosParaVenderView();
             veiculoDao.venderLista(listaParaVender);
             view.excluirVeiculoView(listaParaVender);
         }catch(Exception ex){
@@ -55,16 +53,16 @@ public class VendasController {
 
     public void pesquisarVeiculo() {
         try{
-            String categoria = view.getCategoriaForm();
-            String marca = view.getMarcaForm();
-            String atributo = view.getAtributoForm();
+            String categoria = view.getCategoriaFormView();
+            String marca = view.getMarcaFormView();
+            String atributo = view.getAtributoFormView();
             List<Veiculo> lista = this.veiculoDao.getListaParaVender();                   
                         
             veiculoFiltroList = filtarAtributo(lista, atributo);
             veiculoFiltroList = filtarCategoria(veiculoFiltroList, categoria);
             veiculoFiltroList = filtarMarca(veiculoFiltroList, marca);
 
-            view.mostrarListaVeiculos(veiculoFiltroList);            
+            view.mostrarListaVeiculosView(veiculoFiltroList);            
         }catch(Exception ex){
             ex.printStackTrace();
             view.apresentaErro(ex.toString());
@@ -124,6 +122,5 @@ public class VendasController {
             return listaFiltro; 
         }
     }
-
-    
+   
 }

@@ -48,7 +48,7 @@ public class VeiculoController {
     }
 
     public void limparCampos() {
-        view.limparForm();
+        view.limparFormView();
     }
 
      public void voltarIndex() {
