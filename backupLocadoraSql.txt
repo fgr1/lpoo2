@@ -30,3 +30,21 @@ create table veiculos
 
 insert into veiculos (marca, estado, locacao, categoria, valordecompra, placa, ano, modelo)
 values ('Volkswagen', 'NOVO', null, 'POPULAR', 25000, 'AAA-1234', 2015, 'GOL');
+
+ALTER TABLE clientes
+ADD CONSTRAINT ukcpf UNIQUE (cpf);
+
+ALTER TABLE veiculos
+ADD CONSTRAINT ukplaca UNIQUE (placa);
+
+CREATE TABLE locacoes (
+	id serial,
+	cpf varchar(11),
+	placa varchar(8),
+	dias integer,
+	data date,
+	valorlocacao double precision,
+	constraint pkLocacao primary key (id),
+	constraint fkcliente foreign key (cpf) references clientes (cpf),
+	constraint fkveiculo foreign key (placa) references veiculos (placa)
+);

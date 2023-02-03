@@ -219,6 +219,10 @@ public class FormDados extends javax.swing.JPanel {
         txtCpf.setText(cliente.getCpf());     
     }
     
+    public Cliente getCliente() {
+        return this.clientePesquisado;
+    }
+    
     public String getAtributo(){
         String atributo = null;
         if (cbxAtributo != null) {

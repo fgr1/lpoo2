@@ -4,6 +4,7 @@
  */
 package locadora.view.tela.locacao;
 
+import java.util.Calendar;
 import java.util.List;
 import javax.swing.JOptionPane;
 import locadora.controller.ClienteController;
@@ -108,6 +109,10 @@ public class JanelaLocacao extends javax.swing.JFrame {
         formDados1.setCliente(cliente);
     }
     
+    public Cliente getClienteFormView(){
+        return this.formDados1.getCliente();
+    }
+    
     public Veiculo getVeiculoParaLocarDaTabelaView() {
        return this.tabelaLocacao1.getVeiculoParaLocarDaTabela();
     }
@@ -142,6 +147,14 @@ public class JanelaLocacao extends javax.swing.JFrame {
     
     public String getSobrenomeClienteFormView() {
         return this.formDados1.getClienteSobrenome();
+    }
+    
+    public int getDiaFormView(){
+        return this.formLocar1.getDia();
+    }
+    
+    public Calendar getDataFormView(){
+        return this.formLocar1.getDataLocacao();
     }
 
     public void limparFormClienteView() {

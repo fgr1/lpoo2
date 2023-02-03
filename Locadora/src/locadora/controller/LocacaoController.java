@@ -5,6 +5,7 @@
 package locadora.controller;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import locadora.dao.LocacaoDao;
 import locadora.model.Automovel;
@@ -44,7 +45,26 @@ public class LocacaoController {
     }    
 
     public void locarVeiculo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try{
+        Veiculo v = null;
+        Cliente c = null;
+        v = view.getVeiculoParaLocarDaTabelaView();
+        c = view.getClienteFormView();
+        
+        int dia = view.getDiaFormView();
+        Calendar data = view.getDataFormView();
+        
+        
+        v.locar(dia, data, c);
+        locacaoDao.locar(v, c, dia, data, dia);
+        locacaoDao.atualizarLocacao(v);
+        view.excluirVeiculoView(v);
+        view.apresentaInfo("Locação realizada!");
+        
+        }catch(Exception ex){
+            ex.printStackTrace();
+            view.apresentaErro(ex.toString());
+        }
     }
 
     public void pesquisarVeiculos() {

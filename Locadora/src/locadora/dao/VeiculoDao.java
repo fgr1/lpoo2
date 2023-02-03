@@ -30,7 +30,6 @@ public class VeiculoDao {
     private final ConnectionFactory connectionFactory;
     private final String insert = "INSERT INTO veiculos (marca, estado, categoria, valordecompra, placa, ano, modelo, tipo) VALUES (?,?,?,?,?,?,?,?)";
     private final String vender = "UPDATE veiculos SET estado = 'VENDIDO' WHERE placa = ?";
-    private final String locar = "UPDATE veiculos SET estado = 'LOCADO' WHERE placa = ?";
     private final String selectVendas = "SELECT * FROM veiculos WHERE estado != 'VENDIDO'";
     
     public VeiculoDao(ConnectionFactory conFactory) {
@@ -75,18 +74,6 @@ public class VeiculoDao {
             } finally{
                 stmtAtualiza.close();
             }
-        }
-    
-    public void atualizarLocacao (Veiculo veiculo) throws SQLException {
-        Connection connection=connectionFactory.getConnection();
-        PreparedStatement stmtAtualiza;
-        stmtAtualiza = connection.prepareStatement(locar);
-        try {
-            stmtAtualiza.setString(1, veiculo.getPlaca());
-            stmtAtualiza.executeUpdate();
-        } finally{
-            stmtAtualiza.close();
-        }
     }
     
     public void venderLista(List<Veiculo> veiculos) throws SQLException {

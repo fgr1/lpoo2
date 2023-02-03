@@ -4,6 +4,8 @@
  */
 package locadora.view.tela.locacao;
 
+import java.util.Calendar;
+import java.util.Date;
 import locadora.controller.LocacaoController;
 
 /**
@@ -17,6 +19,8 @@ public class FormLocar extends javax.swing.JPanel {
      */
     public FormLocar() {
         initComponents();
+        Date currentDate = new Date();
+        txtDataLocacao.setValue(currentDate);
     }
 
     /**
@@ -108,4 +112,14 @@ public class FormLocar extends javax.swing.JPanel {
         this.btnLocar.addActionListener(e -> controller.locarVeiculo());
     }
 
+    public int getDia() {
+        int dias = (Integer) spDias.getValue();
+        return dias;
+    }
+
+    public Calendar getDataLocacao(){
+        Calendar data = Calendar.getInstance();
+        data.setTime((Date) txtDataLocacao.getValue());
+        return data;
+    }
 }
