@@ -53,10 +53,10 @@ public class LocacaoController {
         
         int dia = view.getDiaFormView();
         Calendar data = view.getDataFormView();
-        
+        double valor = v.getValorDiariaLocacao()*dia;
         
         v.locar(dia, data, c);
-        locacaoDao.locar(v, c, dia, data, dia);
+        locacaoDao.locar(v, c, dia, data, valor);
         locacaoDao.atualizarLocacao(v);
         view.excluirVeiculoView(v);
         view.apresentaInfo("Locação realizada!");

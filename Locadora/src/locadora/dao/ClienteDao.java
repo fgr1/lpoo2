@@ -22,8 +22,10 @@ public class ClienteDao {
     private final ConnectionFactory connectionFactory;
     private final String insert = "INSERT INTO clientes (nome, sobrenome, rg, cpf, endereco) VALUES (?,?,?,?,?)";
     private final String select = "SELECT * FROM clientes";
+    private final String selectCpf = "SELECT * FROM clientes WHERE cpf = ?";
     private final String update = "UPDATE clientes SET nome = ?, sobrenome = ?, rg = ?, cpf = ?, endereco = ? WHERE id = ?";
     private final String delete = "DELETE FROM clientes WHERE id=?";
+    private final String selectClienteLocacao = "SELECT * FROM locacoes WHERE cpf = ?";
     
     public ClienteDao(ConnectionFactory conFactory) {
         this.connectionFactory = conFactory;
@@ -78,6 +80,34 @@ public class ClienteDao {
         }
     }
     
+    public Cliente buscarPorCpf(String cpf) throws SQLException {
+        Connection connection = connectionFactory.getConnection();
+        ResultSet rs = null;
+        PreparedStatement stmt = connection.prepareStatement(selectCpf);
+        try {
+            stmt.setString(1, cpf);
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                
+                
+                long id = rs.getLong("id");
+                String nome= rs.getString("nome");
+                String sobrenome = rs.getString("sobrenome");
+                String rg = rs.getString("rg");
+                String endereco = rs.getString("endereco");
+
+                return new Cliente(id, nome, sobrenome, rg, cpf, endereco);
+            } else {
+                return null;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally{
+            rs.close();
+            stmt.close();
+        }
+    }   
+    
     public void atualizar(Cliente cliente) throws SQLException {
         Connection connection=connectionFactory.getConnection();
         PreparedStatement stmtAtualiza = connection.prepareStatement(update);
@@ -96,16 +126,18 @@ public class ClienteDao {
     }
     
     public void excluir(Cliente cliente) throws SQLException {
-        Connection connection=connectionFactory.getConnection();
-        PreparedStatement stmtExcluir;
-        stmtExcluir = connection.prepareStatement(delete);
+        if (clienteEstaEmLocacao(cliente)) {
+            throw new RuntimeException("Não é possível excluir o cliente pois ele está em locação");
+        }
+        Connection connection = connectionFactory.getConnection();
+        PreparedStatement stmtExcluir = connection.prepareStatement(delete);
         try {
             stmtExcluir.setLong(1, cliente.getId());
             stmtExcluir.executeUpdate();
-        } finally{
+        } finally {
             stmtExcluir.close();
+            connection.close();
         }
-
     }
     
     public void exluirLista(List<Cliente> clientes) throws SQLException {
@@ -113,4 +145,17 @@ public class ClienteDao {
             excluir(cliente);
         }
     }   
+
+    public boolean clienteEstaEmLocacao(Cliente cliente) throws SQLException {
+        Connection connection = connectionFactory.getConnection();
+        PreparedStatement stmtClienteLocacao = connection.prepareStatement(selectClienteLocacao);
+        stmtClienteLocacao.setString(1, cliente.getCpf());
+        ResultSet rs = stmtClienteLocacao.executeQuery();
+        boolean clienteEmLocacao = rs.next();
+        rs.close();
+        stmtClienteLocacao.close();
+        connection.close();
+        return clienteEmLocacao;
+    }
+
 }

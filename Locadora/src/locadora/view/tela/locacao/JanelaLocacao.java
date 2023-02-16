@@ -7,9 +7,7 @@ package locadora.view.tela.locacao;
 import java.util.Calendar;
 import java.util.List;
 import javax.swing.JOptionPane;
-import locadora.controller.ClienteController;
 import locadora.controller.LocacaoController;
-import locadora.controller.VendasController;
 import locadora.model.Cliente;
 import locadora.model.Veiculo;
 

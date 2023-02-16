@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package locadora.view.tela.locacao;
+package locadora.view.tela.devolucao;
 
 import java.util.List;
 import javax.swing.JTable;
@@ -12,15 +12,15 @@ import locadora.model.Veiculo;
  *
  * @author Felipe
  */
-public class TabelaLocacao extends javax.swing.JPanel {
+public class TabelaDevolucao extends javax.swing.JPanel {
     
-    private LocacaoTableModel locacaoTableModel = new LocacaoTableModel();
-    private JanelaLocacao janela;
+    private DevolucaoTableModel devolucaoTableModel = new DevolucaoTableModel();
+    private JanelaDevolucao janela;
     private int linhaClicadaParaAtualizacao = -1;
     /**
-     * Creates new form TabelaLocacao
+     * Creates new form TabelaDevolucao
      */
-    public TabelaLocacao() {
+    public TabelaDevolucao() {
         initComponents();
     }
 
@@ -33,11 +33,11 @@ public class TabelaLocacao extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tLocar = new javax.swing.JTable();
+        scrlDevolucao = new javax.swing.JScrollPane();
+        tblDevolucao = new javax.swing.JTable();
 
-        tLocar.setModel(locacaoTableModel);
-        jScrollPane1.setViewportView(tLocar);
+        tblDevolucao.setModel(devolucaoTableModel);
+        scrlDevolucao.setViewportView(tblDevolucao);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -45,50 +45,50 @@ public class TabelaLocacao extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
+                .addComponent(scrlDevolucao, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                .addComponent(scrlDevolucao, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-    
-    public JTable getTabelaLocacao() {
-        return tLocar;
+
+    public JTable getTabelaDevolucao() {
+        return tblDevolucao;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tLocar;
+    private javax.swing.JScrollPane scrlDevolucao;
+    private javax.swing.JTable tblDevolucao;
     // End of variables declaration//GEN-END:variables
 
-    void setJanelaView(JanelaLocacao janela) {
+    void setJanelaView(JanelaDevolucao janela) {
         this.janela = janela;
     }
     
     public void inserirVeiculoTabela(Veiculo veiculo) {
-        locacaoTableModel.adicionaVeiculo(veiculo);
+        devolucaoTableModel.adicionaVeiculo(veiculo);
     }
 
     public void setListaVeiculosTabela(List<Veiculo> lista) {
-        locacaoTableModel.setListaVeiculo(lista);
+        devolucaoTableModel.setListaVeiculo(lista);
     }
     
     public Veiculo getVeiculoParaLocarDaTabela() {
-        int linhaSelecionada = this.getTabelaLocacao().getSelectedRow();
-            Veiculo veiculo = locacaoTableModel.getVeiculo(linhaSelecionada);
+        int linhaSelecionada = this.getTabelaDevolucao().getSelectedRow();
+            Veiculo veiculo = devolucaoTableModel.getVeiculo(linhaSelecionada);
         return veiculo;
     }
     
     public void excluirVeiculosDaTabela(Veiculo veiculo) {
-        locacaoTableModel.removeVeiculo(veiculo);
+        devolucaoTableModel.removeVeiculo(veiculo);
     }
-
+    
     public void atualizarVeiculoNaTabela(Veiculo veiculo) {
-        locacaoTableModel.fireTableRowsUpdated(linhaClicadaParaAtualizacao, linhaClicadaParaAtualizacao);    
-    } 
+        devolucaoTableModel.fireTableRowsUpdated(linhaClicadaParaAtualizacao, linhaClicadaParaAtualizacao);    
+    }  
 }

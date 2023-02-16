@@ -4,6 +4,9 @@
  */
 package locadora.view.tela.clientes;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import locadora.controller.ClienteController;
 
 /**
@@ -97,7 +100,13 @@ public class BotoesClientes extends javax.swing.JPanel {
       
         this.btnIncluirCliente.addActionListener(e -> controller.incluirCliente());
         this.btnAtualizarCliente.addActionListener(e -> controller.atualizarCliente());
-        this.btnExcluirCliente.addActionListener(e -> controller.excluirCliente());
+        this.btnExcluirCliente.addActionListener(e -> {
+            try {
+                controller.excluirCliente();
+            } catch (SQLException ex) {
+                Logger.getLogger(BotoesClientes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
         this.btnListarCliente.addActionListener(e -> controller.listarCliente());
         this.btnVoltar.addActionListener(e -> controller.voltarIndex());
 

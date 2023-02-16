@@ -4,6 +4,7 @@
  */
 package locadora.controller;
 
+import java.sql.SQLException;
 import java.util.List;
 import locadora.model.Cliente;
 import locadora.dao.ClienteDao;
@@ -57,13 +58,22 @@ public class ClienteController {
         }
     }
     
-    public void excluirCliente() {
-        try{
-            List<Cliente> listaParaExcluir = view.getClientesParaExcluir();
-            clienteDao.exluirLista(listaParaExcluir);
-            view.excluirClienteView(listaParaExcluir);
-        }catch(Exception ex){
+    public void excluirCliente() throws SQLException {
+        try {
+        List<Cliente> listaParaExcluir = view.getClientesParaExcluir();
+        
+        for (Cliente cliente : listaParaExcluir) {
+            if (clienteDao.clienteEstaEmLocacao(cliente)) {
+                view.apresentaErro("O cliente " + cliente.getNome() + " não pode ser excluído pois está em uma locação.");
+            } else {
+                clienteDao.excluir(cliente);
+                view.excluirClienteView(listaParaExcluir);
+            }
+        }
+        } catch (RuntimeException ex) {
             view.apresentaErro("Erro ao excluir contatos.");
+        } catch (SQLException ex) {
+            view.apresentaErro("Erro ao acessar o banco de dados.");
         }
     }
     
