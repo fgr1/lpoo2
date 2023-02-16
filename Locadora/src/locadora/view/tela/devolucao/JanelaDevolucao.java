@@ -113,5 +113,13 @@ public class JanelaDevolucao extends javax.swing.JFrame {
     public void mostrarListaVeiculosView(List<Veiculo> lista) {
         tabelaDevolucao1.setListaVeiculosTabela(lista);
     }
+    
+    public void excluirVeiculoView(Veiculo veiculo) {
+       tabelaDevolucao1.excluirVeiculosDaTabela(veiculo);
+    }
+    
+    public Veiculo getVeiculoParaDevolverDaTabelaView() {
+       return this.tabelaDevolucao1.getVeiculoParaDevolverDaTabela();
+    }
 
 }

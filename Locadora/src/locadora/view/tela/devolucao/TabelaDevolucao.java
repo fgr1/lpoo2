@@ -78,7 +78,7 @@ public class TabelaDevolucao extends javax.swing.JPanel {
         devolucaoTableModel.setListaVeiculo(lista);
     }
     
-    public Veiculo getVeiculoParaLocarDaTabela() {
+    public Veiculo getVeiculoParaDevolverDaTabela() {
         int linhaSelecionada = this.getTabelaDevolucao().getSelectedRow();
             Veiculo veiculo = devolucaoTableModel.getVeiculo(linhaSelecionada);
         return veiculo;

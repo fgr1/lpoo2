@@ -58,7 +58,7 @@ public class ClienteController {
         }
     }
     
-    public void excluirCliente() throws SQLException {
+    public void excluirCliente(){
         try {
         List<Cliente> listaParaExcluir = view.getClientesParaExcluir();
         
@@ -82,8 +82,7 @@ public class ClienteController {
             view.limparClienteAtualizar();
             List<Cliente> lista = this.clienteDao.getLista();
             view.mostrarListaClientes(lista);
-        }catch(Exception ex){
-            ex.printStackTrace();
+        }catch(SQLException ex){
             view.apresentaErro("Erro ao listar contatos.");
         }
     }

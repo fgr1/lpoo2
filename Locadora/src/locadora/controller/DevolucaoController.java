@@ -38,7 +38,20 @@ public class DevolucaoController {
     }
 
     public void devolverVeiculo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try{
+        Veiculo v = null;
+        v = view.getVeiculoParaDevolverDaTabelaView();
+
+        
+        devolucaoDao.devolver(v);
+
+        view.excluirVeiculoView(v);
+        view.apresentaInfo("Devolução realizada!");
+        
+        }catch(Exception ex){
+            ex.printStackTrace();
+            view.apresentaErro(ex.toString());
+        }
     }
 
     public void listarVeiculos() {
