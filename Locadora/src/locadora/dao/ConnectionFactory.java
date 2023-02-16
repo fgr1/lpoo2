@@ -11,10 +11,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-/**
- *
- * @author Felipe
- */
+
 public class ConnectionFactory {   
     
     public Connection getConnection() {

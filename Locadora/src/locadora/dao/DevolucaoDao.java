@@ -24,14 +24,12 @@ import locadora.model.enums.ModeloAutomovel;
 import locadora.model.enums.ModeloMotocicleta;
 import locadora.model.enums.ModeloVan;
 
-/**
- *
- * @author Felipe
- */
+
 public class DevolucaoDao {
 
 private final ConnectionFactory connectionFactory;
 private final String devolver = "DELETE FROM locacoes WHERE placa = ?";
+private final String update = "UPDATE veiculos SET estado = 'DISPONIVEL' WHERE placa = ?";
 private final String select = "SELECT * FROM locacoes";
 private final String selectVeiculo = "SELECT * FROM veiculos WHERE placa = ?";
 private final String selectCliente = "SELECT * FROM clientes WHERE cpf = ?";
@@ -140,9 +138,14 @@ private final String selectCliente = "SELECT * FROM clientes WHERE cpf = ?";
     public void devolver(Veiculo v) throws SQLException {
         Connection connection = connectionFactory.getConnection();
         PreparedStatement stmtDevolver = connection.prepareStatement(devolver);
+        PreparedStatement ps = connection.prepareStatement(update);
         try {
             stmtDevolver.setString(1, v.getPlaca());
             stmtDevolver.executeUpdate();
+            
+            ps.setString(1, v.getPlaca());
+            ps.executeUpdate();
+            
         } finally {
             stmtDevolver.close();
             connection.close();

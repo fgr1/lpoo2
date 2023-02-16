@@ -17,10 +17,7 @@ import locadora.view.tela.locacao.JanelaLocacao;
 import locadora.view.tela.veiculos.JanelaVeiculos;
 import locadora.view.tela.vendas.JanelaVendas;
 
-/**
- *
- * @author Felipe
- */
+
 public class IndexController {
    
     private JanelaIndex janela;

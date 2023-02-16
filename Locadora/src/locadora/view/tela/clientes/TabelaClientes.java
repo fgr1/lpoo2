@@ -9,17 +9,12 @@ import java.util.List;
 import javax.swing.JTable;
 import locadora.model.Cliente;
 
-/**
- *
- * @author Felipe
- */
+
 public class TabelaClientes extends javax.swing.JPanel {
     private ClientesTableModel modeloTabelaCliente = new ClientesTableModel();;
     private JanelaClientes janela;
     private int linhaClicadaParaAtualizacao = -1;
-    /**
-     * Creates new form TabelaClientes
-     */
+  
     public TabelaClientes() {
         initComponents();
     }

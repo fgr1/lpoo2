@@ -9,10 +9,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-/**
- *
- * @author Felipe
- */
+
 public class Locacao {
 
     private Cliente cliente;
@@ -39,12 +36,15 @@ public class Locacao {
     public double getValor(){
         return valor; 
     }
-    
-    public int getdias(){
+
+    public int getDias() {
         return dias;
     }
-    
-    
+
+    public String getPlaca() {
+        return placa;
+    }
+
     public Calendar getData(){
         DateFormat formato = new SimpleDateFormat("yyyy/MM/dd ");
         Calendar Data = Calendar.getInstance();

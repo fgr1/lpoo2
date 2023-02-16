@@ -6,15 +6,10 @@ package locadora.view;
 
 import locadora.controller.IndexController;
 
-/**
- *
- * @author Felipe
- */
+
 public class JanelaIndex extends javax.swing.JFrame {
 
-    /**
-     * Creates new form JanelaIndex
-     */
+
     public JanelaIndex() {
         initComponents();
     }
@@ -48,9 +43,6 @@ public class JanelaIndex extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private locadora.view.BotoesInit botoesInit1;

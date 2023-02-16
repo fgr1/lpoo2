@@ -9,10 +9,7 @@ import java.util.List;
 import javax.swing.JTable;
 import locadora.model.Veiculo;
 
-/**
- *
- * @author Felipe
- */
+
 public class TabelaVendas extends javax.swing.JPanel {
     private VendasTableModel modeloTabelaVenda = new VendasTableModel();
     private JanelaVendas janela;

@@ -13,10 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import locadora.model.Cliente;
 
-/**
- *
- * @author Felipe
- */
+
 public class ClienteDao {
     
     private final ConnectionFactory connectionFactory;

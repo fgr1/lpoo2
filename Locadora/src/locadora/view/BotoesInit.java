@@ -6,15 +6,10 @@ package locadora.view;
 
 import locadora.controller.IndexController;
 
-/**
- *
- * @author Felipe
- */
+
 public class BotoesInit extends javax.swing.JPanel {
 
-    /**
-     * Creates new form BotoesInit
-     */
+ 
     public BotoesInit() {
         initComponents();
     }

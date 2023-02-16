@@ -4,10 +4,7 @@
  */
 package locadora.view.tela.devolucao;
 
-/**
- *
- * @author Felipe
- */
+
 public class TituloDevolucao extends javax.swing.JPanel {
 
     /**

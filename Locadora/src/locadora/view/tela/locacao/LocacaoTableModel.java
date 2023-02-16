@@ -13,10 +13,7 @@ import locadora.model.Motocicleta;
 import locadora.model.Van;
 import locadora.model.Veiculo;
 
-/**
- *
- * @author Felipe
- */
+
 public class LocacaoTableModel extends AbstractTableModel {
 
     private String[] colunas=new String[]{"Placa", "Marca", "Modelo", "Ano", "Preço da Diária"};

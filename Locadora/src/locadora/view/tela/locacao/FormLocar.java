@@ -8,10 +8,7 @@ import java.util.Calendar;
 import java.util.Date;
 import locadora.controller.LocacaoController;
 
-/**
- *
- * @author Felipe
- */
+
 public class FormLocar extends javax.swing.JPanel {
 
     /**
@@ -122,4 +119,8 @@ public class FormLocar extends javax.swing.JPanel {
         data.setTime((Date) txtDataLocacao.getValue());
         return data;
     }
+    
+    void limparDias() {
+        spDias.setValue(0);
+    }    
 }

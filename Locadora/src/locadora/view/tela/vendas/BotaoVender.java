@@ -6,10 +6,7 @@ package locadora.view.tela.vendas;
 
 import locadora.controller.VendasController;
 
-/**
- *
- * @author Felipe
- */
+
 public class BotaoVender extends javax.swing.JPanel {
 
     /**

@@ -4,20 +4,13 @@
  */
 package locadora.view.tela.clientes;
 
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import locadora.controller.ClienteController;
 
-/**
- *
- * @author Felipe
- */
+
 public class BotoesClientes extends javax.swing.JPanel {
 
-    /**
-     * Creates new form BotoesClientes
-     */
+
     public BotoesClientes() {
         initComponents();
     }

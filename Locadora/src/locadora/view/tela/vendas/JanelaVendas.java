@@ -8,13 +8,8 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import locadora.controller.VendasController;
 import locadora.model.Veiculo;
-import locadora.model.enums.Categoria;
-import locadora.model.enums.Marca;
 
-/**
- *
- * @author Felipe
- */
+
 public class JanelaVendas extends javax.swing.JFrame {
 
     /**

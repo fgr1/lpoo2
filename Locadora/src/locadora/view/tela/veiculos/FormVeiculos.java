@@ -21,10 +21,7 @@ import static locadora.model.enums.ModeloMotocicleta.*;
 import locadora.model.enums.ModeloVan;
 import static locadora.model.enums.ModeloVan.*;
 
-/**
- *
- * @author Felipe
- */
+
 public class FormVeiculos extends javax.swing.JPanel {
 
     Marca marca;

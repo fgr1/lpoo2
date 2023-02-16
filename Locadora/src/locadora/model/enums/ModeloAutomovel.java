@@ -3,10 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Enum.java to edit this template
  */
 package locadora.model.enums;
-/**
- *
- * @author Felipe
- */
+
+
 public enum ModeloAutomovel implements Modelo{
     
     GOL("Gol"), 

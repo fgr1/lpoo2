@@ -10,10 +10,6 @@ import locadora.model.enums.Categoria;
 import locadora.model.enums.Marca;
 
 
-/**
- *
- * @author Felipe
- */
 public class FormPesquisar extends javax.swing.JPanel {
     
     /**

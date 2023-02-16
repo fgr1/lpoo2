@@ -8,10 +8,7 @@ import java.util.List;
 import javax.swing.JTable;
 import locadora.model.Veiculo;
 
-/**
- *
- * @author Felipe
- */
+
 public class TabelaDevolucao extends javax.swing.JPanel {
     
     private DevolucaoTableModel devolucaoTableModel = new DevolucaoTableModel();

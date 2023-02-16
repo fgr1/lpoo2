@@ -4,10 +4,7 @@
  */
 package locadora.model.enums;
 
-/**
- *
- * @author Felipe
- */
+
 public interface Modelo {
     
     public String getDescricao();

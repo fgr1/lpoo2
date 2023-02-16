@@ -21,16 +21,13 @@ import locadora.model.enums.ModeloAutomovel;
 import locadora.model.enums.ModeloMotocicleta;
 import locadora.model.enums.ModeloVan;
 
-/**
- *
- * @author Felipe
- */
+
 public class VeiculoDao {
     
     private final ConnectionFactory connectionFactory;
     private final String insert = "INSERT INTO veiculos (marca, estado, categoria, valordecompra, placa, ano, modelo, tipo) VALUES (?,?,?,?,?,?,?,?)";
     private final String vender = "UPDATE veiculos SET estado = 'VENDIDO' WHERE placa = ?";
-    private final String selectVendas = "SELECT * FROM veiculos WHERE estado != 'VENDIDO'";
+    private final String selectVendas = "SELECT * FROM veiculos WHERE estado != 'VENDIDO' AND estado != 'LOCADO'";
     
     public VeiculoDao(ConnectionFactory conFactory) {
         this.connectionFactory = conFactory;

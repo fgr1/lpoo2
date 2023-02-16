@@ -4,10 +4,7 @@
  */
 package locadora.model;
 
-/**
- *
- * @author Felipe
- */
+
 public class Cliente {
     
     private long id;

@@ -6,10 +6,7 @@ package locadora.view.tela.locacao;
 
 import locadora.controller.LocacaoController;
 
-/**
- *
- * @author Felipe
- */
+
 public class BotaoVoltar extends javax.swing.JPanel {
 
     /**

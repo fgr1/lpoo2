@@ -6,10 +6,7 @@ package locadora.view.tela.devolucao;
 
 import locadora.controller.DevolucaoController;
 
-/**
- *
- * @author Felipe
- */
+
 public class BotaoListar extends javax.swing.JPanel {
 
     /**

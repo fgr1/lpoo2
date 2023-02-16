@@ -16,10 +16,7 @@ import locadora.model.Veiculo;
 import locadora.view.JanelaIndex;
 import locadora.view.tela.locacao.JanelaLocacao;
 
-/**
- *
- * @author Felipe
- */
+
 public class LocacaoController {
 
     private final JanelaLocacao view;
@@ -60,6 +57,7 @@ public class LocacaoController {
         locacaoDao.atualizarLocacao(v);
         view.excluirVeiculoView(v);
         view.apresentaInfo("Locação realizada!");
+        view.limparFormView();
         
         }catch(Exception ex){
             ex.printStackTrace();
@@ -106,7 +104,7 @@ public class LocacaoController {
                 view.apresentaInfo("Cliente localizado!");
             } else {
                 view.apresentaErro("Erro ao localizar cliente!");
-                view.limparFormClienteView();
+                view.limparFormView();
             }
         }catch(Exception ex){
             ex.printStackTrace();

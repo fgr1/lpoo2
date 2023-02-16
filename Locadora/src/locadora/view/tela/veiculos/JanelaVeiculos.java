@@ -8,10 +8,7 @@ import javax.swing.JOptionPane;
 import locadora.controller.VeiculoController;
 import locadora.model.Veiculo;
 
-/**
- *
- * @author Felipe
- */
+
 public class JanelaVeiculos extends javax.swing.JFrame {
 
     /**

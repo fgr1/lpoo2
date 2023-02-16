@@ -4,10 +4,7 @@
  */
 package locadora.model.enums;
 
-/**
- *
- * @author Felipe
- */
+
 public enum Marca {
     
     Volkswagen ("Volkswagen"), 

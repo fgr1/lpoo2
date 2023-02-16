@@ -4,10 +4,7 @@
  */
 package locadora.model.enums;
 
-/**
- *
- * @author Felipe
- */
+
 public enum ModeloMotocicleta implements Modelo{
   
     CG125("CG 125"), 

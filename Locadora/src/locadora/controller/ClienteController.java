@@ -11,10 +11,7 @@ import locadora.dao.ClienteDao;
 import locadora.view.tela.clientes.JanelaClientes;
 import locadora.view.JanelaIndex;
 
-/**
- *
- * @author Felipe
- */
+
 public class ClienteController {
     
     private JanelaClientes view;

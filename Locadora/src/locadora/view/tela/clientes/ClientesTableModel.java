@@ -9,10 +9,7 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import locadora.model.Cliente;
 
-/**
- *
- * @author Felipe
- */
+
 public class ClientesTableModel extends AbstractTableModel{
     
     private String[] colunas=new String[]{"ID","Nome", "Sobrenome", "RG", "CPF", "Endereço"};
@@ -41,14 +38,6 @@ public class ClientesTableModel extends AbstractTableModel{
     public String getColumnName(int index) {
         return this.colunas[index];
     }
-
-    @Override
-    public boolean isCellEditable(int row, int column) {
-        return false;
-        /*if(column==0)
-            return true;
-        return false;*/
-    }  
     
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {

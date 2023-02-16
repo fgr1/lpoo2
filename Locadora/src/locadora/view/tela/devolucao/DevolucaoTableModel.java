@@ -17,10 +17,7 @@ import locadora.model.Motocicleta;
 import locadora.model.Van;
 import locadora.model.Veiculo;
 
-/**
- *
- * @author Felipe
- */
+
 public class DevolucaoTableModel extends AbstractTableModel{
 
     private String[] colunas=new String[]{"Cliente","Placa", "Marca", "Modelo", "Ano", "Data de Locação", "Preço Diária", "Dias", "Valor da Locação"};
@@ -84,7 +81,7 @@ public class DevolucaoTableModel extends AbstractTableModel{
                 return formatter.format(data.getTime());
             }
             case 6: return NumberFormat.getCurrencyInstance().format(veiculo.getValorDiariaLocacao());
-            case 7: return veiculo.getLocacao().getdias();
+            case 7: return veiculo.getLocacao().getDias();
             case 8: return NumberFormat.getCurrencyInstance().format(veiculo.getLocacao().getValor());
             default : return null;
         }

@@ -6,15 +6,9 @@ package locadora.view.tela.devolucao;
 
 import locadora.controller.DevolucaoController;
 
-/**
- *
- * @author Felipe
- */
+
 public class BotaoDevolver extends javax.swing.JPanel {
 
-    /**
-     * Creates new form BotoesDevolucao
-     */
     public BotaoDevolver() {
         initComponents();
     }

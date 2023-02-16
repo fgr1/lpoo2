@@ -11,10 +11,7 @@ import locadora.model.Veiculo;
 import locadora.view.JanelaIndex;
 import locadora.view.tela.devolucao.JanelaDevolucao;
 
-/**
- *
- * @author Felipe
- */
+
 public class DevolucaoController {
 
     private final JanelaDevolucao view;

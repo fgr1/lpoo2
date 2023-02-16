@@ -13,10 +13,7 @@ import locadora.model.Veiculo;
 import locadora.model.enums.Categoria;
 import locadora.model.enums.Marca;
 
-/**
- *
- * @author Felipe
- */
+
 public class FormDados extends javax.swing.JPanel {
     
     private Cliente clientePesquisado;
@@ -293,5 +290,9 @@ public class FormDados extends javax.swing.JPanel {
         txtCpf.setText("");
         txtNome.setText("");
         txtSobrenome.setText("");
+                
+        cbxAtributo.setSelectedItem("None");
+        cbxCategoria.setSelectedItem("None");
+        cbxMarca.setSelectedItem("None");
     }
 }

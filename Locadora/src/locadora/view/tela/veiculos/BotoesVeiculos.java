@@ -6,10 +6,7 @@ package locadora.view.tela.veiculos;
 
 import locadora.controller.VeiculoController;
 
-/**
- *
- * @author Felipe
- */
+
 public class BotoesVeiculos extends javax.swing.JPanel {
 
     /**

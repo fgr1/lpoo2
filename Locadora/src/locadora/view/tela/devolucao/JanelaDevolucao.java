@@ -9,10 +9,7 @@ import javax.swing.JOptionPane;
 import locadora.controller.DevolucaoController;
 import locadora.model.Veiculo;
 
-/**
- *
- * @author Felipe
- */
+
 public class JanelaDevolucao extends javax.swing.JFrame {
 
     /**

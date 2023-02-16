@@ -9,10 +9,7 @@ import locadora.model.enums.Marca;
 import locadora.model.enums.Estado;
 import java.util.Calendar;
 
-/**
- *
- * @author Felipe
- */
+
 public interface VeiculoI {
 //  Muda estado para LOCADO. Cria uma instância de Locacao e armazena no atributo 
 //  locacao. Chama o método getValorDiariaLocacao para calcular o valor da locação.

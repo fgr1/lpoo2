@@ -22,10 +22,8 @@ import locadora.model.enums.Marca;
 import locadora.model.enums.ModeloAutomovel;
 import locadora.model.enums.ModeloMotocicleta;
 import locadora.model.enums.ModeloVan;
-/**
- *
- * @author Felipe
- */
+
+
 public class LocacaoDao {
     
     private final ConnectionFactory connectionFactory;

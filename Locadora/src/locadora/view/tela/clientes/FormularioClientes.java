@@ -4,16 +4,12 @@
  */
 package locadora.view.tela.clientes;
 import locadora.model.Cliente;
-/**
- *
- * @author Felipe
- */
+
+
 public class FormularioClientes extends javax.swing.JPanel {
 
     private Cliente clienteSelecionadoParaAtualizacao;
-    /**
-     * Creates new form FormularioClientes
-     */
+    
     public FormularioClientes() {
         initComponents();
     }

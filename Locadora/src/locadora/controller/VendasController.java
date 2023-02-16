@@ -14,10 +14,7 @@ import locadora.model.Veiculo;
 import locadora.view.JanelaIndex;
 import locadora.view.tela.vendas.JanelaVendas;
 
-/**
- *
- * @author Felipe
- */
+
 public class VendasController {
 
     private final JanelaVendas view;

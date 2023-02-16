@@ -9,10 +9,7 @@ import locadora.model.enums.Estado;
 import locadora.model.enums.Marca;
 import locadora.model.enums.ModeloAutomovel;
 
-/**
- *
- * @author Felipe
- */
+
 public class Automovel extends Veiculo {
      
     private ModeloAutomovel modelo;

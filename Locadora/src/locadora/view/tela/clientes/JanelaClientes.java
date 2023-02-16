@@ -8,15 +8,10 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import locadora.controller.ClienteController;
 import locadora.model.Cliente;
-/**
- *
- * @author Felipe
- */
+
+
 public class JanelaClientes extends javax.swing.JFrame {
 
-    /**
-     * Creates new form JanelaClientes
-     */
     public JanelaClientes() {
         initComponents();
     }

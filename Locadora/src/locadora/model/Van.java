@@ -9,10 +9,7 @@ import locadora.model.enums.Estado;
 import locadora.model.enums.Marca;
 import locadora.model.enums.ModeloVan;
 
-/**
- *
- * @author Felipe
- */
+
 public class Van extends Veiculo {
 
     private ModeloVan modelo;

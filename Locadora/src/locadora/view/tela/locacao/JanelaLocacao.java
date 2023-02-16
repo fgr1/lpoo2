@@ -11,10 +11,7 @@ import locadora.controller.LocacaoController;
 import locadora.model.Cliente;
 import locadora.model.Veiculo;
 
-/**
- *
- * @author Felipe
- */
+
 public class JanelaLocacao extends javax.swing.JFrame {
 
     /**
@@ -155,7 +152,8 @@ public class JanelaLocacao extends javax.swing.JFrame {
         return this.formLocar1.getDataLocacao();
     }
 
-    public void limparFormClienteView() {
+    public void limparFormView() {
         formDados1.limparForm();
+        formLocar1.limparDias();
     }
 }

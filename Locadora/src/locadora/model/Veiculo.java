@@ -9,10 +9,7 @@ import locadora.model.enums.Marca;
 import locadora.model.enums.Estado;
 import java.util.Calendar;
 
-/**
- *
- * @author Felipe
- */
+
 public abstract class Veiculo implements VeiculoI {
     
     Marca marca;
